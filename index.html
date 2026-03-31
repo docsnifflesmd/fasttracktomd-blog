@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Blog | Fast Track to MD</title>
+<meta name="description" content="Practical guides, timelines, and insider strategy for high-achieving premed students pursuing BS/MD and accelerated medical pathways. Written by a physician who did it."/>
+<meta property="og:title" content="Fast Track to MD — Blog"/>
+<meta property="og:description" content="Practical guides and insider strategy for premed students pursuing BS/MD and accelerated pathways."/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Fast Track to MD"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --black:     #0A0A0A;
+    --charcoal:  #1E1E1E;
+    --gold:      #F5C200;
+    --gold-lt:   rgba(245,194,0,0.10);
+    --gold-bd:   rgba(245,194,0,0.28);
+    --off-white: #F7F5F0;
+    --paper:     #EFEFEC;
+    --mid:       #D0CFC8;
+    --muted:     #6B6B60;
+    --text:      #1A1A18;
+    --white:     #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--off-white);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px; line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,10,10,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #222;
+    padding: 0 40px; height: 56px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 14px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--white); text-decoration: none;
+  }
+  .nav-logo a span { color: var(--gold); }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600; font-size: 12px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.45); text-decoration: none;
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--gold); color: var(--black) !important;
+    padding: 7px 18px; border-radius: 2px; font-weight: 900 !important;
+  }
+  .nav-cta:hover { opacity: 0.88; }
+
+  /* HERO */
+  .blog-hero {
+    background: var(--black);
+    padding: 120px 40px 80px;
+    position: relative; overflow: hidden;
+  }
+  .blog-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 50% 60% at 80% 50%, rgba(245,194,0,0.05) 0%, transparent 65%),
+      radial-gradient(ellipse 30% 40% at 10% 80%, rgba(245,194,0,0.03) 0%, transparent 60%);
+  }
+  .blog-hero::after {
+    content: ''; position: absolute; top: 0; right: 200px;
+    width: 1px; height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(245,194,0,0.15) 40%, rgba(245,194,0,0.15) 60%, transparent 100%);
+  }
+  .blog-hero-inner {
+    max-width: 1100px; margin: 0 auto;
+    position: relative; z-index: 1;
+  }
+  .blog-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); display: flex; align-items: center; gap: 10px;
+    margin-bottom: 20px;
+  }
+  .eyebrow-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+    animation: pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.6)} }
+
+  .blog-hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: clamp(52px, 6vw, 82px);
+    text-transform: uppercase; letter-spacing: 0.02em;
+    line-height: 0.92; color: var(--white); margin-bottom: 22px;
+  }
+  .blog-hero h1 span { color: var(--gold); }
+  .blog-hero-sub {
+    font-family: 'Lora', serif; font-style: italic;
+    font-size: 17px; line-height: 1.72;
+    color: rgba(255,255,255,0.4);
+    max-width: 520px;
+  }
+  .gold-rule { width: 48px; height: 3px; background: var(--gold); margin: 24px 0; }
+
+  /* FILTER BAR */
+  .filter-bar {
+    background: var(--charcoal);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 0 40px;
+  }
+  .filter-bar-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; gap: 0; overflow-x: auto;
+  }
+  .filter-btn {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    background: transparent; border: none;
+    border-bottom: 2px solid transparent;
+    padding: 16px 20px; cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+  }
+  .filter-btn:hover { color: rgba(255,255,255,0.7); }
+  .filter-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* POSTS GRID */
+  .posts-section {
+    max-width: 1100px; margin: 0 auto;
+    padding: 72px 40px 100px;
+  }
+
+  .posts-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 11px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 32px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .posts-label::after {
+    content: ''; flex: 1; height: 1px; background: var(--mid);
+  }
+
+  /* FEATURED POST */
+  .post-featured {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; margin-bottom: 2px;
+    background: var(--black);
+    border-top: 4px solid var(--gold);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .post-featured:hover { opacity: 0.92; }
+  .post-featured-text {
+    padding: 48px 48px 48px 48px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .post-featured-visual {
+    background: var(--charcoal);
+    border-left: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: center; justify-content: center;
+    min-height: 320px; position: relative; overflow: hidden;
+  }
+  .post-featured-visual::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(245,194,0,0.06) 0%, transparent 70%);
+  }
+  .featured-number {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: 160px; line-height: 1;
+    color: rgba(255,255,255,0.04); position: relative; z-index: 1;
+    user-select: none;
+  }
+  .post-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); background: var(--gold-lt);
+    border: 1px solid var(--gold-bd);
+    padding: 4px 10px; display: inline-block; margin-bottom: 18px;
+  }
+  .post-featured h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: 42px;
+    text-transform: uppercase; letter-spacing: 0.02em;
+    line-height: 0.95; color: var(--white); margin-bottom: 16px;
+  }
+  .post-featured h2 span { color: var(--gold); }
+  .post-excerpt {
+    font-family: 'Lora', serif; font-style: italic;
+    font-size: 14px; line-height: 1.75;
+    color: rgba(255,255,255,0.38); margin-bottom: 28px;
+    flex: 1;
+  }
+  .post-meta-row {
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .post-date {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+  }
+  .post-read {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+  }
+  .post-arrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 12px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold); margin-left: auto;
+  }
+
+  /* POSTS GRID */
+  .posts-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px; margin-bottom: 2px;
+  }
+
+  .post-card {
+    background: var(--white);
+    border-top: 3px solid var(--mid);
+    padding: 32px 28px;
+    text-decoration: none;
+    display: flex; flex-direction: column;
+    transition: border-color 0.2s;
+  }
+  .post-card:hover { border-top-color: var(--gold); }
+  .post-card .post-tag { color: var(--muted); background: var(--paper); border-color: var(--mid); margin-bottom: 14px; }
+  .post-card:hover .post-tag { color: var(--gold); background: var(--gold-lt); border-color: var(--gold-bd); }
+  .post-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 22px;
+    text-transform: uppercase; letter-spacing: 0.03em;
+    line-height: 1.05; color: var(--black); margin-bottom: 12px;
+  }
+  .post-card .post-excerpt {
+    font-family: 'Lora', serif; font-style: italic;
+    font-size: 13px; line-height: 1.72;
+    color: var(--muted); margin-bottom: 20px; flex: 1;
+  }
+  .post-card .post-meta-row .post-date,
+  .post-card .post-meta-row .post-read { color: var(--muted); }
+  .post-card .post-arrow { color: var(--gold); }
+
+  /* COMING SOON CARD */
+  .post-card-soon {
+    background: var(--paper);
+    border-top: 3px solid var(--mid);
+    padding: 32px 28px;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    text-align: center; min-height: 200px;
+  }
+  .soon-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--mid); margin-bottom: 10px; display: block;
+  }
+  .soon-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 18px;
+    text-transform: uppercase; letter-spacing: 0.04em;
+    color: var(--mid); line-height: 1.1;
+  }
+
+  /* NEWSLETTER STRIP */
+  .newsletter-strip {
+    background: var(--gold);
+    padding: 40px;
+    display: flex; align-items: center;
+    justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  }
+  .newsletter-text-head {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: 22px;
+    letter-spacing: 0.03em; text-transform: uppercase; color: var(--black);
+  }
+  .newsletter-text-sub {
+    font-size: 13px; color: rgba(10,10,10,0.6); margin-top: 5px;
+    font-family: 'Lora', serif; font-style: italic;
+  }
+  .newsletter-btn {
+    background: var(--black); color: var(--gold);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: 13px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 14px 28px; text-decoration: none;
+    border-radius: 2px; white-space: nowrap; transition: opacity 0.15s;
+  }
+  .newsletter-btn:hover { opacity: 0.88; }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal); padding: 28px 40px;
+    display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 13px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+  .footer-logo span { color: var(--gold); }
+  footer p { font-size: 12px; color: rgba(255,255,255,0.22); }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .blog-hero { padding: 100px 24px 60px; }
+    .filter-bar { padding: 0 24px; }
+    .posts-section { padding: 48px 24px 72px; }
+    .post-featured { grid-template-columns: 1fr; }
+    .post-featured-visual { display: none; }
+    .post-featured-text { padding: 32px 28px; }
+    .posts-grid { grid-template-columns: 1fr; }
+    .newsletter-strip { flex-direction: column; padding: 32px 24px; }
+    footer { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><a href="/">Fast Track <span>to MD</span></a></div>
+  <div class="nav-links">
+    <a href="/blog" style="color:var(--white)">Blog</a>
+    <a href="https://fasttracktomd.beehiiv.com/" target="_blank">Newsletter</a>
+    <a href="https://forms.gle/1GQvuHp98V6J2bfV7" target="_blank" class="nav-cta">Apply Free</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="blog-hero">
+  <div class="blog-hero-inner">
+    <div class="blog-eyebrow"><div class="eyebrow-dot"></div>Fast Track to MD · The Blog</div>
+    <h1>The <span>Roadmap</span><br/>They Don't<br/>Teach You</h1>
+    <div class="gold-rule"></div>
+    <p class="blog-hero-sub">Practical strategy for high-achieving premed students who are serious about accelerated pathways — written by a physician who lived it.</p>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-bar-inner">
+    <button class="filter-btn active" onclick="filterPosts('all', this)">All Posts</button>
+    <button class="filter-btn" onclick="filterPosts('acceleration', this)">Acceleration Strategy</button>
+    <button class="filter-btn" onclick="filterPosts('research', this)">Research</button>
+    <button class="filter-btn" onclick="filterPosts('clinical', this)">Clinical Experience</button>
+    <button class="filter-btn" onclick="filterPosts('application', this)">Applications</button>
+  </div>
+</div>
+
+<!-- POSTS -->
+<section class="posts-section">
+
+  <div class="posts-label">All Posts · 20 Articles</div>
+
+  <!-- FEATURED POST -->
+  <a href="md-at-23.html" class="post-featured reveal" data-category="acceleration">
+    <div class="post-featured-text">
+      <div>
+        <span class="post-tag">Acceleration Strategy</span>
+        <h2>MD at <span>23</span></h2>
+        <p class="post-excerpt">Not a unicorn story. Just someone who had the roadmap early and made intentional decisions at every step. Here's the full breakdown — year by year, decision by decision.</p>
+      </div>
+      <div class="post-meta-row">
+        <span class="post-date">Jan 12, 2026</span>
+        <span class="post-read">· 5 min read</span>
+        <span class="post-arrow">Read →</span>
+      </div>
+    </div>
+    <div class="post-featured-visual">
+      <div class="featured-number">23</div>
+    </div>
+  </a>
+
+  <!-- GRID -->
+  <div class="posts-grid" id="posts-grid">
+
+    <a href="dont-miss-opportunities-application-building-starts-now.html" class="post-card reveal" data-category="application">
+      <span class="post-tag">Applications</span>
+      <h3>Don't Miss Opportunities: BS/MD and Med School Application Building Starts Now</h3>
+      <p class="post-excerpt">Practicing in front of a mirror won't be enough. Here's what adcoms are actually evaluating — and why summer is the time to start building the skill they're looking for.</p>
+      <div class="post-meta-row"><span class="post-date">Mar 30, 2026</span><span class="post-read">· 10 min</span><span class="post-arrow">Read →</span></div>
+    </a>
+
+    <a href="the-hidden-variable-behind-successful-bs-md-applicants.html" class="post-card reveal" data-category="application">
+      <span class="post-tag">Applications</span>
+      <h3>The Hidden Variable Behind Successful BS/MD or BS/DO Applicants</h3>
+      <p class="post-excerpt">BS/MD programs aren't just selecting for performance. They're locking in students before GPA and MCAT filters have occurred. The one factor that consistently makes or breaks these applications isn't what most students think.</p>
+      <div class="post-meta-row"><span class="post-date">Mar 23, 2026</span><span class="post-read">· 8 min</span><span class="post-arrow">Read →</span></div>
+    </a>
+
+    <a href="my-match-day-secret.html" class="post-card reveal" data-category="acceleration">
+      <span class="post-tag">Acceleration Strategy</span>
+      <h3>My Match Day Secret: A Special Article Written for Match Week</h3>
+      <p class="post-excerpt">Dr. Samarrai was told she would need a research gap year to match into ENT. She didn't listen — and applied to two specialties instead. Here's the story.</p>
+      <div class="post-meta-row"><span class="post-date">Mar 13, 2026</span><span class="post-read">· 9 min</span><span class="post-arrow">Read →</span></div>
+    </a>
+
+    <a href="how-accelerating-premeds-should-choose-an-undergrad-major.html" class="post-card reveal" data-category="acceleration">
+      <span class="post-tag">Acceleration Strategy</span>
+      <h3>How Accelerating Premeds Should Actually Choose an Undergrad Major</h3>
+      <p class="post-excerpt">Your major matters far less than how you design your timeline — but it can be the wrong one if it tanks your GPA or hinders MCAT prep. Here's the Fast Track approach.</p>
+      <div class="post-meta-row"><span class="post-date">Mar 9, 2026</span><span class="post-read">· 11 min</span><span class="post-arrow">Read →</span></div>
+    </a>
+
+    <a href="how-to-create-cv-worthy-experiences.html" class="post-card reveal" data-category="application">
+      <span class="post-tag">Applications</span>
+      <h3>How to Create CV-Worthy Experiences</h3>
+      <p class="post-excerpt">Those students with the flashy CVs aren't better than you — they just knew how to make their experiences count. Here's the step-by-step guide to designing experiences that actually matter.</p>
+      <div class="post-meta-row"><span class="post-date">Mar 3, 2026</span><span class="post-read">· 8 min</span><span class="post-arrow">Read →</span></div>
+    </a>
+
+    <a href="mmi-and-interviews-the-formula.html" class="post-card reveal" data-category="application">
+      <span class="post-tag">Applications</span>
+      <h3>MMI and Interviews — The Formula</h3>
+      <p class="post-excerpt">The 5-step MMI formula that kept Dr. Samarrai calm and helped her mentees get in. A repeatable structure for thinking clearly and showing interviewers how your mind works.</p>
+      <div class="post-meta-row"><span class="post-date">Jan 30, 2026</span><span class="post-read">· 7 min</span><span class="post-arrow">Read →</span></div>
+    </a>
+
+    <a href="fast-track-foundations-optimizing-your-premed-roadmap.html" class="post-card reveal" data-category="acceleration">
+      <span class="post-tag">Acceleration Strategy</span>
+      <h3>Fast Track Foundations: Optimizing Your Premed Roadmap</h3>
+      <p class="post-excerpt">An introduction to the Fast Track strategy — covering early acceleration options, AP optimization, BS/MD programs, Early Assurance Programs, and 3-year medical schools.</p>
+      <div class="post-meta-row"><span class="post-date">Feb 16, 2026</span><span class="post-read">· 4 min</span><span class="post-arrow">Read →</span></div>
+    </a>
+
+    <a href="becoming-a-doctor-in-the-us-takes-too-long.html" class="post-card reveal" data-category="acceleration">
+      <span class="post-tag">Acceleration Strategy</span>
+      <h3>Becoming a Doctor in the US Takes Too Long — Here's What You Can Do About It.</h3>
+      <p class="post-excerpt">The traditional US medical path is not just long — it's high-risk. 73.2% of matriculants take gap years. Here's how to engineer a timeline where the worst case is still a win.</p>
+      <div class="post-meta-row"><span class="post-date">Feb 9, 2026</span><span class="post-read">· 4 min</span><span class="post-arrow">Read →</span></div>
+    </a>
+
+    <a href="how-youre-wasting-years-during-medical-training.html" class="post-card reveal" data-category="acceleration">
+      <span class="post-tag">Acceleration Strategy</span>
+      <h3>How You're Wasting Years During Medical Training (and How to Get Them Back)</h3>
+      <p class="post-excerpt">Most students don't realize they're wasting years until those years are already gone. A meaningful portion of the traditional timeline is optional — here's why.</p>
+      <div class="post-meta-row">
+        <span class="post-date">Dec 31, 2025</span>
+        <span class="post-read">· 6 min</span>
+        <span class="post-arrow">Read →</span>
+      </div>
+    </a>
+
+    <a href="the-5-premed-myths-that-waste-years.html" class="post-card reveal" data-category="acceleration">
+      <span class="post-tag">Acceleration Strategy</span>
+      <h3>The 5 Premed Myths That Waste Years</h3>
+      <p class="post-excerpt">The "safe" advice most students follow is quietly costing them years. In a system where 73% of matriculants take at least one gap year, standard has become high-risk.</p>
+      <div class="post-meta-row">
+        <span class="post-date">Feb 26, 2026</span>
+        <span class="post-read">· 6 min</span>
+        <span class="post-arrow">Read →</span>
+      </div>
+    </a>
+
+    <a href="what-if-i-dont-get-into-bsmd-from-high-school.html" class="post-card reveal" data-category="application">
+      <span class="post-tag">Applications</span>
+      <h3>What If I Don't Get Into BA/BS/MD/DO From High School?</h3>
+      <p class="post-excerpt">You haven't missed the boat. A rejection from a combined program in high school is not the end of acceleration — it's often just the beginning of a smarter path.</p>
+      <div class="post-meta-row">
+        <span class="post-date">Feb 19, 2026</span>
+        <span class="post-read">· 7 min</span>
+        <span class="post-arrow">Read →</span>
+      </div>
+    </a>
+
+    <a href="the-wrong-advice-can-derail-your-premed-journey.html" class="post-card reveal" data-category="acceleration">
+      <span class="post-tag">Acceleration Strategy</span>
+      <h3>The Wrong Advice Can Derail Your Premed Journey</h3>
+      <p class="post-excerpt">Most premed advisors have never applied to medical school. Here's why that matters more than most students realize — and how to tell the difference.</p>
+      <div class="post-meta-row">
+        <span class="post-date">Feb 12, 2026</span>
+        <span class="post-read">· 6 min</span>
+        <span class="post-arrow">Read →</span>
+      </div>
+    </a>
+
+    <a href="ap-class-optimization.html" class="post-card reveal" data-category="acceleration">
+      <span class="post-tag">Acceleration Strategy</span>
+      <h3>AP Class Optimization for the Accelerating Premed Student</h3>
+      <p class="post-excerpt">The goal isn't to collect APs. It's to strategically eliminate the freshman weed-out courses before they can touch your GPA.</p>
+      <div class="post-meta-row">
+        <span class="post-date">Feb 6, 2026</span>
+        <span class="post-read">· 5 min</span>
+        <span class="post-arrow">Read →</span>
+      </div>
+    </a>
+
+    <a href="should-you-accelerate-premed.html" class="post-card reveal" data-category="acceleration">
+      <span class="post-tag">Acceleration Strategy</span>
+      <h3>Should You "Rush"? Is Acceleration Right for You?</h3>
+      <p class="post-excerpt">Acceleration isn't about cutting corners. It's about aligning your education with financial realities, life goals, and the cognitive demands of training itself.</p>
+      <div class="post-meta-row">
+        <span class="post-date">Jan 26, 2026</span>
+        <span class="post-read">· 5 min</span>
+        <span class="post-arrow">Read →</span>
+      </div>
+    </a>
+
+    <a href="bs-md-vs-ivy-substance-vs-prestige.html" class="post-card reveal" data-category="application">
+      <span class="post-tag">Applications</span>
+      <h3>BS/MD vs. T20/Ivy: Substance vs. Prestige</h3>
+      <p class="post-excerpt">A student gets into an Ivy and a BS/MD program. The family freezes. Here's the honest answer to the question everyone is actually asking.</p>
+      <div class="post-meta-row">
+        <span class="post-date">Jan 9, 2026</span>
+        <span class="post-read">· 7 min</span>
+        <span class="post-arrow">Read →</span>
+      </div>
+    </a>
+
+    <a href="bs-do-or-bust-for-md.html" class="post-card reveal" data-category="application">
+      <span class="post-tag">Applications</span>
+      <h3>BS/DO or Bust for MD? What You Need to Know.</h3>
+      <p class="post-excerpt">Should you take the BS/DO seat now or wait and try for MD later? The honest answer depends on what you value more: certainty or optionality.</p>
+      <div class="post-meta-row">
+        <span class="post-date">Jan 5, 2026</span>
+        <span class="post-read">· 7 min</span>
+        <span class="post-arrow">Read →</span>
+      </div>
+    </a>
+
+    <a href="3-year-med-schools.html" class="post-card reveal" data-category="acceleration">
+      <span class="post-tag">Acceleration Strategy</span>
+      <h3>3-Year Med Schools: Your Second Chance at the Fast Track</h3>
+      <p class="post-excerpt">Not just for primary care. There are 3-year tracks to surgery, ENT, orthopedics, and more. Here's everything you need to know about CAMPP programs and how to decide if one fits your goals.</p>
+      <div class="post-meta-row">
+        <span class="post-date">Jan 19, 2026</span>
+        <span class="post-read">· 6 min</span>
+        <span class="post-arrow">Read →</span>
+      </div>
+    </a>
+
+    <a href="how-to-get-published-as-a-high-school-or-early-undergrad-student.html" class="post-card reveal" data-category="research">
+      <span class="post-tag">Research</span>
+      <h3>How to Actually Get Published as a High School or Early Undergrad Student</h3>
+      <p class="post-excerpt">You don't need a lab, a PI, or a university affiliation to start building a research credential. Here's how to actually make it happen.</p>
+      <div class="post-meta-row">
+        <span class="post-date">2025</span>
+        <span class="post-read">· Fast Track to MD</span>
+        <span class="post-arrow">Read →</span>
+      </div>
+    </a>
+
+    <a href="premeds-how-to-get-doctors-to-actually-respond-to-you.html" class="post-card reveal" data-category="clinical">
+      <span class="post-tag">Clinical Experience</span>
+      <h3>How to Get Doctors to Actually Respond to You</h3>
+      <p class="post-excerpt">Cold emails to physicians almost never work. Here's what does — and how to turn a response into a real clinical opportunity.</p>
+      <div class="post-meta-row">
+        <span class="post-date">2025</span>
+        <span class="post-read">· Fast Track to MD</span>
+        <span class="post-arrow">Read →</span>
+      </div>
+    </a>
+
+  </div>
+
+</section>
+
+<!-- NEWSLETTER STRIP -->
+<div class="newsletter-strip">
+  <div>
+    <div class="newsletter-text-head">Don't miss the next one.</div>
+    <div class="newsletter-text-sub">Timeline alerts, program updates, and strategy — delivered when it matters.</div>
+  </div>
+  <a href="https://fasttracktomd.beehiiv.com/subscribe" target="_blank" class="newsletter-btn">Subscribe Free →</a>
+</div>
+
+<footer>
+  <div class="footer-logo">Fast Track <span>to MD</span> · fasttracktomd.com</div>
+  <p>© 2026 Fast Track to MD. All rights reserved.</p>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Filter
+  function filterPosts(category, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const featured = document.querySelector('.post-featured');
+    const cards = document.querySelectorAll('.post-card, .post-card-soon');
+    if (category === 'all') {
+      featured.style.display = '';
+      cards.forEach(c => c.style.display = '');
+    } else {
+      featured.style.display = featured.dataset.category === category ? '' : 'none';
+      cards.forEach(c => {
+        c.style.display = (!c.dataset.category || c.dataset.category === category) ? '' : 'none';
+      });
+    }
+  }
+</script>
+</body>
+</html>
